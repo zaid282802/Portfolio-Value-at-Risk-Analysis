@@ -1,0 +1,5 @@
+confidence,alpha,var_method,expected_rate,observed_rate,exceptions,n_obs,kupiec_LR,kupiec_pval,kupiec_decision,christ_LR,christ_pval,christ_decision,traffic_light
+90.0%,0.9,VaR_historical_90,10.0%,10.3%,233,2262,,,accept,,,insufficient_data,green
+95.0%,0.95,VaR_historical_95,5.0%,5.3%,121,2262,0.5684737404686263,0.4508660494296026,accept,4.313054342418062,0.03782099808279826,reject,green
+97.5%,0.975,VaR_historical_97,2.5%,2.8%,64,2262,0.9662031928778847,0.3256289205148605,accept,2.118003241249132,0.1455762298872284,accept,green
+99.0%,0.99,VaR_historical_99,1.0%,1.2%,28,2262,1.2016577590918502,0.272990597258035,accept,8.169540348985274,0.004259970105879751,reject,green

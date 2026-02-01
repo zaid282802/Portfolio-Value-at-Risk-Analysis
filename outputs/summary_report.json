@@ -1,0 +1,54 @@
+{
+  "analysis_date": "2026-02-01 04:57:07",
+  "tickers": [
+    "SPY",
+    "QQQ",
+    "TLT",
+    "GLD"
+  ],
+  "start_date": "2015-01-01",
+  "end_date": "2024-12-31",
+  "n_observations": 2514,
+  "portfolio_value": 1000000,
+  "primary_confidence": 0.95,
+  "window_size": 252,
+  "portfolio_statistics": {
+    "mean": 0.00041294922518429696,
+    "std": 0.006896335649486756,
+    "skewness": -0.29492673268150305,
+    "kurtosis": 6.617680021784935,
+    "min": -0.05526501070997808,
+    "max": 0.04948921429880193,
+    "median": 0.0007053126281183347,
+    "count": 2514
+  },
+  "var_estimates": {
+    "historical_pct": -0.010570980881298445,
+    "normal_pct": -0.01093051348054873,
+    "cornish_fisher_pct": -0.010576397557071326,
+    "monte_carlo_pct": -0.011060309426458435,
+    "cvar_pct": -0.016202064761880138,
+    "historical_dollars": -10570.980881298445,
+    "var_10day_dollars": -33428.37668699712
+  },
+  "backtest_summary": {
+    "methods_tested": [
+      "Historical",
+      "Normal",
+      "Cornish-Fisher"
+    ],
+    "confidence_levels_tested": [
+      0.9,
+      0.95,
+      0.975,
+      0.99
+    ]
+  },
+  "clustering_analysis": {
+    "total_exceptions": 121,
+    "avg_time_between": 27.233333333333334,
+    "max_gap": 240,
+    "min_gap": 1,
+    "clustering_ratio": 1.4567786619510759
+  }
+}
