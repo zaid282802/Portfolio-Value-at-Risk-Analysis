@@ -448,3 +448,4 @@ Master of Quantitative Finance Program, Rutgers Business School.
 4. Favre, L., & Galeano, J. A. (2002). "Mean-Modified Value-at-Risk Optimization with Hedge Funds". *Journal of Alternative Investments*, 5(2), 21-25.
 
 5. Basel Committee on Banking Supervision (2019). *Minimum Capital Requirements for Market Risk*.
+
