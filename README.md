@@ -1,5 +1,7 @@
 # Portfolio VaR Analysis
 
+**October 2025** | Zaid Annigeri | Master of Quantitative Finance, Rutgers Business School
+
 > Comprehensive Value-at-Risk (VaR) framework implementing multiple methodologies, backtesting procedures, and stress testing for multi-asset portfolios.
 
 ## Project Overview
