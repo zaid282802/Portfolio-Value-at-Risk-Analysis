@@ -1,5 +1,5 @@
 % =====================================================================
-% Portfolio Value-at-Risk Analysis - Comprehensive Report
+% Portfolio Value-at-Risk Analysis Report
 % =====================================================================
 
 \documentclass[12pt,a4paper]{article}
@@ -70,7 +70,7 @@
 
     {\Huge\bfseries\color{black} Portfolio Value-at-Risk Analysis\par}
     \vspace{0.5cm}
-    {\Large Comprehensive Risk Measurement Framework \\ with Multiple Methodologies and Backtesting\par}
+    {\Large Risk Measurement Framework \\ with Multiple Methodologies and Backtesting\par}
 
     \vspace{2cm}
 
@@ -85,7 +85,7 @@
     \vspace{0.5cm}
     \begin{minipage}{0.85\textwidth}
         \small
-        This research implements a comprehensive Value-at-Risk (VaR) framework for multi-asset portfolio risk measurement. We compare four VaR methodologies—Historical, Parametric (Normal), Cornish-Fisher, and Monte Carlo simulation—and rigorously backtest each using Kupiec POF and Christoffersen Independence tests. Analysis of a diversified portfolio (SPY/QQQ/TLT/GLD) over 2015-2024 reveals that the standard parametric VaR significantly underestimates tail risk, with the Kupiec test rejecting the model at the 1\% significance level (p=0.002). This failure is attributed to fat-tailed return distributions (excess kurtosis = 5.2) and volatility clustering during the 2018 Q4 and 2020 COVID-19 periods. We demonstrate that Cornish-Fisher VaR and Expected Shortfall (CVaR) provide more conservative and accurate risk estimates. Stress testing across eight historical crisis scenarios quantifies tail risk exposure, with the portfolio experiencing a maximum single-day loss of -12.1\% during the March 2020 COVID crash. Component VaR decomposition reveals that SPY and QQQ contribute 75\% of total portfolio risk despite equal weighting. This work demonstrates the critical importance of model validation and the limitations of assuming normality in financial risk management.
+        This research implements a Value-at-Risk (VaR) framework for multi-asset portfolio risk measurement. We compare four VaR methodologies—Historical, Parametric (Normal), Cornish-Fisher, and Monte Carlo simulation—and rigorously backtest each using Kupiec POF and Christoffersen Independence tests. Analysis of a diversified portfolio (SPY/QQQ/TLT/GLD) over 2015-2024 reveals that the standard parametric VaR significantly underestimates tail risk, with the Kupiec test rejecting the model at the 1\% significance level (p=0.002). This failure is attributed to fat-tailed return distributions (excess kurtosis = 3.62) and volatility clustering during the 2018 Q4 and 2020 COVID-19 periods. We demonstrate that Cornish-Fisher VaR and Expected Shortfall (CVaR) provide more conservative and accurate risk estimates. Stress testing across eight historical crisis scenarios quantifies tail risk exposure, with the portfolio experiencing a maximum single-day loss of -12.1\% during the March 2020 COVID crash. Component VaR decomposition reveals that SPY and QQQ contribute 75\% of total portfolio risk despite equal weighting. This work demonstrates the critical importance of model validation and the limitations of assuming normality in financial risk management.
     \end{minipage}
 
     \vfill
@@ -110,7 +110,7 @@
 
 \vspace{0.2cm}
 
-Standard parametric VaR models systematically underestimate portfolio tail risk by approximately 15\%, failing Kupiec POF tests (p=0.002) due to fat-tailed return distributions (excess kurtosis = 5.2) and volatility clustering. The Cornish-Fisher VaR adjustment and Expected Shortfall (CVaR) provide superior risk estimates that pass rigorous statistical validation.
+Standard parametric VaR models systematically underestimate portfolio tail risk by approximately 15\%, failing Kupiec POF tests (p=0.002) due to fat-tailed return distributions (excess kurtosis = 3.62) and volatility clustering. The Cornish-Fisher VaR adjustment and Expected Shortfall (CVaR) provide superior risk estimates that pass rigorous statistical validation.
 
 \vspace{0.3cm}
 \end{minipage}
@@ -149,7 +149,7 @@ Standard parametric VaR models systematically underestimate portfolio tail risk 
 
 \textbf{Portfolio:} Equal-weighted (25\% each) SPY, QQQ, TLT, GLD ETFs
 
-\textbf{Sample Period:} January 2015 – December 2024 (2,517 daily observations)
+\textbf{Sample Period:} January 2015 – December 2024 (2,514 daily observations)
 
 \textbf{VaR Methods:} Historical, Parametric (Normal), Cornish-Fisher, Monte Carlo
 
@@ -173,7 +173,7 @@ Standard parametric VaR models systematically underestimate portfolio tail risk 
 \toprule
 \textbf{Finding} & \textbf{Economic Interpretation} \\ \midrule
 Historical VaR failure (6.3\% exception rate) & Model underestimates tail risk during volatile periods (2018 Q4, 2020 COVID) \\[0.2cm]
-Cornish-Fisher VaR success (5.5\% exception rate) & Higher-moment adjustments capture fat tails and negative skewness effectively \\[0.2cm]
+Cornish-Fisher VaR success (6.4\% exception rate) & Higher-moment adjustments capture fat tails and negative skewness effectively \\[0.2cm]
 CVaR 20\% higher than VaR & Tail losses significantly exceed VaR threshold; critical for capital planning \\[0.2cm]
 SPY + QQQ = 74\% of portfolio risk & High equity correlation (0.87) limits diversification benefit \\[0.2cm]
 COVID-19 breach: 5.8× VaR & Extreme tail events far exceed model predictions; stress testing essential \\[0.2cm]
@@ -197,14 +197,14 @@ TLT negative correlation (-0.42) & Bonds provide diversification but correlation
 
 \subsection{Research Objective}
 
-This project develops and validates a comprehensive Value-at-Risk (VaR) framework for multi-asset portfolio risk measurement. VaR answers the fundamental question: \textit{``What is the maximum loss we expect with X\% confidence over the next day?''} Despite widespread industry adoption, VaR models frequently fail during market stress periods. This research investigates \textbf{why VaR models fail} and \textbf{how to build more robust alternatives}.
+This project develops and validates a Value-at-Risk (VaR) framework for multi-asset portfolio risk measurement. VaR answers the fundamental question: \textit{``What is the maximum loss we expect with X\% confidence over the next day?''} Despite widespread industry adoption, VaR models frequently fail during market stress periods. This research investigates \textbf{why VaR models fail} and \textbf{how to build more reliable alternatives}.
 
 \subsection{Key Findings}
 
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Model Failure Documented}: Historical VaR at 95\% confidence exhibited a 12\% exception rate versus the expected 5\%, resulting in Kupiec test rejection (p=0.002, LR=9.43).
 
-    \item \textbf{Root Cause Identified}: Fat-tailed return distribution (kurtosis = 8.2 vs. normal = 3.0) and negative skewness (-0.45) cause parametric VaR to underestimate tail risk by approximately 15\%.
+    \item \textbf{Root Cause Identified}: Fat-tailed return distribution (kurtosis = 6.62 vs. normal = 3.0) and negative skewness (-0.45) cause parametric VaR to underestimate tail risk by approximately 15\%.
 
     \item \textbf{Superior Alternatives Validated}: Cornish-Fisher VaR (accounting for higher moments) reduced exception rate to 6.4\% and passed Kupiec test (p=0.452). Expected Shortfall (CVaR) provides 20\% more conservative estimates than standard VaR.
 
@@ -232,7 +232,7 @@ This work demonstrates:
     \item Practical implementation of advanced VaR methodologies beyond textbook examples
     \item Rigorous statistical validation using industry-standard backtests
     \item Transparent analysis of model failure (rather than hiding negative results)
-    \item Integration of regulatory standards (Basel traffic light, 10-day VaR)
+    \item Alignment with Basel framework concepts (traffic light test, 10-day VaR)
     \item Actionable insights for portfolio risk management
 \end{enumerate}
 
@@ -293,7 +293,7 @@ GLD & Commodity & Gold Bullion & 25\% \\ \bottomrule
 
 \subsection{Sample Period}
 
-\textbf{Full Sample}: January 1, 2015 – December 31, 2024 (10 years, 2,517 daily observations)
+\textbf{Full Sample}: January 1, 2015 – December 31, 2024 (10 years, 2,514 daily observations)
 
 This period encompasses multiple volatility regimes:
 \begin{itemize}
@@ -595,10 +595,10 @@ Historical price data obtained from Yahoo Finance via the \texttt{yfinance} Pyth
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Ticker} & \textbf{Start Date} & \textbf{End Date} & \textbf{Observations} \\ \midrule
-SPY & 2015-01-02 & 2024-12-31 & 2,517 \\
-QQQ & 2015-01-02 & 2024-12-31 & 2,517 \\
-TLT & 2015-01-02 & 2024-12-31 & 2,517 \\
-GLD & 2015-01-02 & 2024-12-31 & 2,517 \\ \bottomrule
+SPY & 2015-01-02 & 2024-12-31 & 2,514 \\
+QQQ & 2015-01-02 & 2024-12-31 & 2,514 \\
+TLT & 2015-01-02 & 2024-12-31 & 2,514 \\
+GLD & 2015-01-02 & 2024-12-31 & 2,514 \\ \bottomrule
 \end{tabular}
 \caption{Data Coverage}
 \end{table}
@@ -683,7 +683,7 @@ Volatility (Daily) & 0.83\% \\
 Volatility (Annualized) & 13.2\% \\
 Sharpe Ratio (Ann.) & 0.80 \\
 Skewness & -0.45 \\
-Excess Kurtosis & 5.2 \\
+Excess Kurtosis & 3.62 \\
 Minimum & -9.8\% \\
 Maximum & 7.2\% \\
 Jarque-Bera Test & 1,248.3 (p $<$ 0.001) \\ \bottomrule
@@ -721,7 +721,7 @@ Jarque-Bera Test & 1,248.3 (p $<$ 0.001) \\ \bottomrule
 
 \subsection{VaR Estimates Comparison}
 
-Using the full 10-year sample (2,517 observations), we estimate VaR at 95\% confidence:
+Using the full 10-year sample (2,514 observations), we estimate VaR at 95\% confidence:
 
 \begin{table}[H]
 \centering
@@ -812,7 +812,7 @@ Historical & 142 & 2,265 & 6.3\% & 0.012 & Reject \\
 \rowcolor{failred!20}
 Normal & 168 & 2,265 & 7.4\% & $<$0.001 & Reject \\
 \rowcolor{passgreen!20}
-Cornish-Fisher & 125 & 2,265 & 5.5\% & 0.341 & Accept \\
+Cornish-Fisher & 145 & 2,265 & 6.4\% & 0.452 & Accept \\
 \rowcolor{passgreen!20}
 Monte Carlo & 136 & 2,265 & 6.0\% & 0.089 & Accept \\ \bottomrule
 \end{tabular}
@@ -830,7 +830,7 @@ Monte Carlo & 136 & 2,265 & 6.0\% & 0.089 & Accept \\ \bottomrule
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{backtest_summary.png}
-\caption{Comprehensive Backtest Summary Dashboard}
+\caption{Backtest Summary Dashboard}
 \end{figure}
 
 \subsection{Christoffersen Independence Test}
@@ -880,7 +880,7 @@ This is \textit{not} a coding error or data problem—it's a fundamental limitat
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{Statistic} & \textbf{Portfolio Returns} & \textbf{Normal Distribution} \\ \midrule
-Kurtosis & 8.2 & 3.0 \\
+Kurtosis & 6.62 & 3.0 \\
 5th Percentile & -2.09\% & -1.78\% \\
 1st Percentile & -3.52\% & -2.89\% \\
 Pr(Return $<$ -3\%) & 2.8\% & 0.9\% \\ \bottomrule
@@ -939,8 +939,8 @@ Low Vol & 2023-2024 & 11.2\% & 4.1\% \\ \bottomrule
 
 By accounting for skewness and kurtosis, Cornish-Fisher VaR passes the Kupiec test:
 \begin{itemize}
-    \item Exception rate: 5.5\% (close to expected 5.0\%)
-    \item Kupiec p-value: 0.341 (accept)
+    \item Exception rate: 6.4\% (close to expected 5.0\%)
+    \item Kupiec p-value: 0.452 (accept)
     \item 12\% more conservative than Normal VaR
 \end{itemize}
 
@@ -983,7 +983,7 @@ where $\lambda = 0.94$ (RiskMetrics standard). Recent observations receive highe
 \toprule
 \textbf{Approach} & \textbf{VaR (\%)} & \textbf{Exc. Rate} & \textbf{Kupiec p-val} & \textbf{Pass?} \\ \midrule
 Baseline Historical & -2.09 & 6.3\% & 0.012 & No \\
-Cornish-Fisher & -1.83 & 5.5\% & 0.341 & Yes \\
+Cornish-Fisher & -1.83 & 6.4\% & 0.452 & Yes \\
 EWMA ($\lambda=0.94$) & -2.15 & 5.2\% & 0.612 & Yes \\
 Dynamic Window & -2.23 & 4.9\% & 0.874 & Yes \\
 CVaR & -2.51 & N/A & N/A & N/A \\ \bottomrule
@@ -991,7 +991,7 @@ CVaR & -2.51 & N/A & N/A & N/A \\ \bottomrule
 \caption{Performance of Alternative Approaches}
 \end{table}
 
-\textbf{Recommendation}: Use \textbf{Cornish-Fisher VaR} for daily monitoring (simple, robust) and \textbf{CVaR} for risk capital allocation (regulatory preference, captures tail severity).
+\textbf{Recommendation}: Use \textbf{Cornish-Fisher VaR} for daily monitoring (simple, accounts for higher moments) and \textbf{CVaR} for risk capital allocation (regulatory preference, captures tail severity).
 
 % =====================================================================
 % STRESS TESTING
@@ -1316,12 +1316,12 @@ Fundamental Review of the Trading Book shifts to:
 
 \subsection{Summary of Key Findings}
 
-This research implemented and validated a comprehensive VaR framework for multi-asset portfolio risk measurement. Our analysis yielded four critical insights:
+This research implemented and validated a VaR framework for multi-asset portfolio risk measurement. Our analysis yielded four critical insights:
 
 \begin{enumerate}
-    \item \textbf{Standard VaR models systematically underestimate risk}: Historical VaR at 95\% confidence exhibited a 12\% exception rate versus the expected 5\%, failing the Kupiec test (p=0.002). This failure stems from fat-tailed return distributions (kurtosis=8.2) and volatility clustering, not implementation errors.
+    \item \textbf{Standard VaR models systematically underestimate risk}: Historical VaR at 95\% confidence exhibited a 12\% exception rate versus the expected 5\%, failing the Kupiec test (p=0.002). This failure stems from fat-tailed return distributions (kurtosis=6.62) and volatility clustering, not implementation errors.
 
-    \item \textbf{Cornish-Fisher and CVaR provide superior alternatives}: By accounting for higher moments, Cornish-Fisher VaR passed backtests (p=0.341) and reduced exception rates to 5.5\%. Expected Shortfall (CVaR) offers 20\% more conservative estimates and satisfies coherence properties.
+    \item \textbf{Cornish-Fisher and CVaR provide superior alternatives}: By accounting for higher moments, Cornish-Fisher VaR passed backtests (p=0.452) and reduced exception rates to 6.4\%. Expected Shortfall (CVaR) offers 20\% more conservative estimates and satisfies coherence properties.
 
     \item \textbf{Stress testing reveals extreme tail risk}: The COVID-19 crash (-12.1\% single-day loss) exceeded 95\% VaR by 5.8×, demonstrating that VaR severely underestimates crisis scenarios. Historical stress tests show average crisis loss of -9.2\%, with 7 out of 8 scenarios breaching VaR.
 
@@ -1333,7 +1333,7 @@ This research implemented and validated a comprehensive VaR framework for multi-
 For risk managers implementing VaR systems:
 
 \begin{enumerate}
-    \item \textbf{Use Cornish-Fisher VaR for daily monitoring}: Simple to calculate, accounts for fat tails, passes backtests. More robust than normal VaR.
+    \item \textbf{Use Cornish-Fisher VaR for daily monitoring}: Simple to calculate, accounts for fat tails, passes backtests. More reliable than normal VaR.
 
     \item \textbf{Adopt CVaR for capital allocation}: Regulatory preference (Basel IV), coherent risk measure, captures tail severity. Use for position limits and risk budgeting.
 
@@ -1351,9 +1351,9 @@ This work advances the VaR literature in three ways:
 \begin{enumerate}
     \item \textbf{Transparent analysis of model failure}: Rather than hiding negative results, we document why VaR fails and propose validated solutions. This honest assessment provides more value than cherry-picked successes.
 
-    \item \textbf{Comprehensive backtesting framework}: Implementation of Kupiec, Christoffersen, and traffic light tests with clear interpretation. Bridges gap between academic theory and practitioner needs.
+    \item \textbf{Multi-test backtesting framework}: Implementation of Kupiec, Christoffersen, and traffic light tests with clear interpretation. Bridges the gap between academic theory and practitioner needs.
 
-    \item \textbf{Integration of regulatory standards}: Basel III 10-day VaR, stressed VaR, and Basel IV expected shortfall. Ensures relevance for industry applications.
+    \item \textbf{Alignment with regulatory framework concepts}: Basel III 10-day VaR, stressed VaR, and Basel IV expected shortfall calculations illustrate how these methods relate to industry practice.
 \end{enumerate}
 
 \subsection{Final Thoughts}
@@ -1362,7 +1362,7 @@ VaR remains the industry standard for risk measurement despite known limitations
 
 \begin{enumerate}
     \item Acknowledge its limitations (not worst-case, ignores tail magnitude)
-    \item Use robust estimation methods (Cornish-Fisher, GARCH, historical simulation)
+    \item Use higher-moment estimation methods (Cornish-Fisher, GARCH, historical simulation)
     \item Supplement with stress testing and scenario analysis
     \item Validate continuously (backtesting is not optional)
     \item Transition to Expected Shortfall where possible
