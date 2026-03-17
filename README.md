@@ -2,14 +2,14 @@
 
 **October 2025** | Zaid Annigeri | Master of Quantitative Finance, Rutgers Business School
 
-> Comprehensive Value-at-Risk (VaR) framework implementing multiple methodologies, backtesting procedures, and stress testing for multi-asset portfolios.
+> A Value-at-Risk (VaR) framework implementing multiple methodologies, backtesting procedures, and stress testing for multi-asset portfolios.
 
 ## Project Overview
 
-This project implements a professional-grade VaR analysis framework covering the complete lifecycle of risk measurement:
+A VaR analysis framework covering the full lifecycle of risk measurement:
 
 - **Multiple VaR Methodologies**: Historical, Parametric (Normal), Cornish-Fisher, and Monte Carlo simulation
-- **Rigorous Backtesting**: Kupiec POF test, Christoffersen Independence test, and Basel Traffic Light approach
+- **Backtesting**: Kupiec POF test, Christoffersen Independence test, and Basel Traffic Light approach
 - **Stress Testing**: Historical crisis scenarios and hypothetical extreme events
 - **Component VaR**: Risk decomposition showing each asset's contribution to portfolio risk
 - **Regulatory Standards**: 10-day VaR calculation, 99% confidence level testing
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/portfolio-var-analysis.git
+git clone https://github.com/Zaid282802/portfolio-var-analysis.git
 cd portfolio-var-analysis
 
 # Install dependencies
@@ -58,8 +58,8 @@ python run_analysis.py --tickers AAPL,MSFT,GOOGL --start 2018-01-01 --end 2023-1
 
 **Output**:
 - `outputs/`: CSV files with backtest results, stress tests, VaR estimates
-- `visualizations/`: 11 professional charts (300 DPI PNG)
-- `outputs/summary_report.json`: Complete analysis summary
+- `visualizations/`: 11 charts (300 DPI PNG)
+- `outputs/summary_report.json`: Full analysis summary
 
 ---
 
@@ -77,7 +77,7 @@ Non-parametric approach using empirical quantiles of historical return distribut
 - Assumes past represents future
 
 ### 2. Parametric VaR (Normal)
-Assumes returns follow a normal distribution: VaR = μ + z_α × σ
+Assumes returns follow a normal distribution: VaR = mu + z_alpha x sigma
 
 **Advantages**:
 - Simple, fast computation
@@ -92,8 +92,8 @@ Adjusts normal VaR for skewness and excess kurtosis using Cornish-Fisher expansi
 
 **Formula**:
 ```
-z_CF = z + (1/6)(z² - 1)S + (1/24)(z³ - 3z)K - (1/36)(2z³ - 5z)S²
-VaR_CF = μ + z_CF × σ
+z_CF = z + (1/6)(z^2 - 1)S + (1/24)(z^3 - 3z)K - (1/36)(2z^3 - 5z)S^2
+VaR_CF = mu + z_CF x sigma
 ```
 
 **Advantages**:
@@ -115,7 +115,7 @@ Simulates 10,000+ return paths using fitted distribution or bootstrap resampling
 - Sensitive to model specification
 
 ### 5. Conditional VaR (CVaR) / Expected Shortfall
-Average loss beyond VaR threshold: CVaR = E[Return | Return ≤ VaR]
+Average loss beyond VaR threshold: CVaR = E[Return | Return <= VaR]
 
 **Advantages**:
 - **Coherent risk measure** (satisfies subadditivity)
@@ -129,24 +129,24 @@ Average loss beyond VaR threshold: CVaR = E[Return | Return ≤ VaR]
 ### Kupiec Proportion of Failures (POF) Test
 Tests whether observed exception rate matches expected rate.
 
-**Null Hypothesis**: Exception rate = (1 - α)
+**Null Hypothesis**: Exception rate = (1 - alpha)
 
-**Test Statistic**: Likelihood ratio (LR) ~ χ²(1)
+**Test Statistic**: Likelihood ratio (LR) ~ chi-squared(1)
 
 **Decision Rule**: Reject if p-value < 0.05
 
 ### Christoffersen Independence Test
 Tests whether exceptions are independently distributed (i.i.d.).
 
-**Why It Matters**: Clustered exceptions indicate model fails to capture volatility dynamics.
+**Why It Matters**: Clustered exceptions indicate the model fails to capture volatility dynamics.
 
 ### Basel Traffic Light Approach
-- **Green Zone**: Model acceptable (exception rate ≤ threshold)
+- **Green Zone**: Model acceptable (exception rate <= threshold)
 - **Yellow Zone**: Model requires monitoring
 - **Red Zone**: Model should be rejected
 
 ### Multi-Confidence Level Testing
-Tests VaR at 90%, 95%, 97.5%, and 99% to verify model performs consistently across confidence levels.
+Tests VaR at 90%, 95%, 97.5%, and 99% to verify the model performs consistently across confidence levels.
 
 ---
 
@@ -163,11 +163,11 @@ Tests VaR at 90%, 95%, 97.5%, and 99% to verify model performs consistently acro
 - **2022 Fed Rate Hikes**
 
 ### Hypothetical Scenarios
-- 1σ, 2σ, 3σ market declines
+- 1-sigma, 2-sigma, 3-sigma market declines
 - Black Monday 1987 (-20.5%)
 - VaR breach multiples (2x, 3x, 5x)
 
-**Output**: Shows which scenarios would exceed VaR threshold and by how much.
+**Output**: Shows which scenarios would exceed the VaR threshold and by how much.
 
 ---
 
@@ -175,13 +175,13 @@ Tests VaR at 90%, 95%, 97.5%, and 99% to verify model performs consistently acro
 
 For multi-asset portfolios, decomposes total VaR into contributions from each asset:
 
-**Component VaR** = w_i × (∂VaR / ∂w_i)
+**Component VaR** = w_i x (dVaR / dw_i)
 
 Shows which positions drive portfolio risk, enabling targeted risk reduction.
 
-**Marginal VaR** = ∂VaR / ∂w_i
+**Marginal VaR** = dVaR / dw_i
 
-Measures how much portfolio VaR would change if we increased position in asset i by 1%.
+Measures how much portfolio VaR would change from a 1% increase in position i.
 
 ---
 
@@ -189,14 +189,14 @@ Measures how much portfolio VaR would change if we increased position in asset i
 
 ```
 portfolio_var_analysis/
-├── run_analysis.py                 # Main analysis script (400+ lines)
-├── src/                            # Modular source code
-│   ├── data.py                     # Data fetching and preprocessing (250 lines)
-│   ├── risk.py                     # VaR calculation functions (400 lines)
-│   ├── backtest.py                 # Backtesting framework (450 lines)
-│   └── plot.py                     # Visualization functions (700 lines)
+├── run_analysis.py                 # Main analysis script (~200 lines)
+├── src/                            # Source code
+│   ├── data.py                     # Data fetching and preprocessing (~100 lines)
+│   ├── risk.py                     # VaR calculation functions (~150 lines)
+│   ├── backtest.py                 # Backtesting framework (~200 lines)
+│   └── plot.py                     # Visualization functions (~350 lines)
 ├── outputs/                        # Generated analysis results
-│   ├── summary_report.json         # Complete analysis summary
+│   ├── summary_report.json         # Analysis summary
 │   ├── var_estimates.csv           # VaR estimates for all methods
 │   ├── backtest_results.csv        # Backtest results at multiple confidence levels
 │   ├── stress_test_results.csv     # Historical stress scenario results
@@ -242,7 +242,7 @@ Histogram overlaid with:
 ### 5. Q-Q Plot
 Tests normality assumption by comparing empirical quantiles to theoretical normal quantiles.
 
-**Key Insight**: Deviations in tails indicate fat-tailed distribution, motivating Cornish-Fisher adjustment.
+Deviations in the tails indicate a fat-tailed distribution, motivating the Cornish-Fisher adjustment.
 
 ### 6. Rolling Volatility
 Shows 21-day, 63-day, and 252-day rolling volatility to identify regime changes.
@@ -250,7 +250,7 @@ Shows 21-day, 63-day, and 252-day rolling volatility to identify regime changes.
 ### 7. VaR Method Comparison
 Overlays Historical, Normal, and Cornish-Fisher VaR on same chart.
 
-**Key Insight**: Normal VaR consistently less conservative than Historical/Cornish-Fisher.
+Normal VaR is consistently less conservative than Historical/Cornish-Fisher.
 
 ### 8. Backtest Summary (4-panel)
 - Exception counts (actual vs expected)
@@ -266,20 +266,22 @@ Pie chart showing % of total VaR contributed by each asset.
 
 ---
 
-## Why This VaR Model Failed (And What We Learned)
+## Why the VaR Model Failed (And What I Learned)
 
 ### The Problem
 ```json
 {
   "kupiec_test": {
-    "p_value": 0.002,    # REJECTED at 1% significance
+    "p_value": 0.002,
     "exceptions": 15,
     "n": 125,
-    "obs_rate": 0.12,    # 12% vs expected 5%
+    "obs_rate": 0.12,
     "decision": "reject"
   }
 }
 ```
+
+The Kupiec test rejected at 1% significance: 12% exception rate vs the expected 5%.
 
 ### Root Causes
 
@@ -289,7 +291,7 @@ Pie chart showing % of total VaR contributed by each asset.
 
 2. **Volatility Clustering**
    - GARCH effects: large moves followed by large moves
-   - VaR model assumes i.i.d. returns, which fails during market stress
+   - The VaR model assumes i.i.d. returns, which fails during market stress
 
 3. **Regime Changes**
    - 2018 Q4 volatility spike (VIX hit 36)
@@ -311,7 +313,7 @@ Pie chart showing % of total VaR contributed by each asset.
 
 4. **Multiple Confidence Levels**
    - Test at 90%, 95%, 97.5%, 99%
-   - Ensures model robust across risk thresholds
+   - Ensures model holds across risk thresholds
 
 ---
 
@@ -323,12 +325,12 @@ Pie chart showing % of total VaR contributed by each asset.
 |--------|-------|----------------|
 | **1-Day VaR (95%)** | $20,900 | 5% chance of losing more than $20,900 tomorrow |
 | **10-Day VaR (99%)** | $66,100 | 1% chance of losing more than $66,100 over 10 days (Basel regulatory standard) |
-| **CVaR (95%)** | $25,100 | If we breach VaR, expected loss is $25,100 |
+| **CVaR (95%)** | $25,100 | If VaR is breached, expected loss is $25,100 |
 
 ### Compared to Industry Benchmarks
 - **Typical Equity Fund VaR**: 1.5-2.0%
-- **Our Portfolio VaR**: 2.09% (slightly above average)
-- **Interpretation**: Higher risk than typical diversified equity fund
+- **This Portfolio's VaR**: 2.09% (slightly above average)
+- **Interpretation**: Higher risk than a typical diversified equity fund
 
 ---
 
@@ -337,7 +339,7 @@ Pie chart showing % of total VaR contributed by each asset.
 ### Basel III Market Risk Framework
 - **VaR Standard**: 99% confidence, 10-day horizon
 - **Stressed VaR**: VaR calculated on 1-year stressed period
-- **Capital Requirement**: max(VaR, SVaR) × 3 × multiplier
+- **Capital Requirement**: max(VaR, SVaR) x 3 x multiplier
 
 ### Basel IV (Fundamental Review of Trading Book)
 - **Shift to Expected Shortfall**: More sensitive to tail risk
@@ -359,16 +361,16 @@ Pie chart showing % of total VaR contributed by each asset.
    - Position sizes may exceed market capacity
 
 3. **No Tail Correlation**
-   - Assumes asset correlations stable across regimes
-   - Reality: Correlations → 1 during crises
+   - Assumes asset correlations are stable across regimes
+   - In reality, correlations tend toward 1 during crises
 
 4. **Static Portfolio**
    - Assumes no trading or rebalancing
-   - Real portfolios dynamic
+   - Real portfolios are dynamic
 
 5. **Model Risk**
    - All models are wrong, some are useful
-   - VaR is not worst-case scenario
+   - VaR is not a worst-case scenario measure
 
 ---
 
@@ -385,7 +387,9 @@ Pie chart showing % of total VaR contributed by each asset.
 
 ---
 
-## Sample Output
+## Example Output
+
+> Note: These values are illustrative and will vary depending on the tickers and date range used.
 
 ```
 ================================================================================
@@ -401,7 +405,7 @@ PORTFOLIO VAR ANALYSIS
 
 1-Day VaR ($1,000,000 portfolio):
   Historical VaR: $20,900
-  10-Day VaR (√10 scaling): $66,100
+  10-Day VaR (sqrt(10) scaling): $66,100
 
 Backtest Results (95% Confidence):
 
@@ -433,7 +437,7 @@ This project is available for educational and research purposes. Please provide 
 
 **Citation:**
 ```
-[Zaid Annigeri] (2025). Portfolio VaR Analysis: Comprehensive Risk Measurement Framework.
+[Zaid Annigeri] (2025). Portfolio VaR Analysis.
 Master of Quantitative Finance Program, Rutgers Business School.
 ```
 
@@ -450,4 +454,3 @@ Master of Quantitative Finance Program, Rutgers Business School.
 4. Favre, L., & Galeano, J. A. (2002). "Mean-Modified Value-at-Risk Optimization with Hedge Funds". *Journal of Alternative Investments*, 5(2), 21-25.
 
 5. Basel Committee on Banking Supervision (2019). *Minimum Capital Requirements for Market Risk*.
-
